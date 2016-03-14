@@ -1,0 +1,7 @@
+@mixin grid($columns, $context: $grid-columns) {
+    width: #{width($columns)};
+}
+
+@function width($columns, $context: $grid-columns) {
+    @return percentage($columns / $context);
+}
