@@ -194,7 +194,7 @@ body {
 
 .card_head_image {
   max-width: 6rem;
-  max-height: 75%;
+  max-height: 5rem;
 }
 
 @media only screen and (max-width: 575px) {
@@ -207,6 +207,10 @@ body {
   .card_head_image {
     width: 3.5rem;
   }
+}
+
+.list_view .card_head_image {
+  max-height: none;
 }
 
 .card .box_flag_body {

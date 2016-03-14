@@ -184,13 +184,17 @@ body {
 
 .card_head_image {
     max-width: (1.5rem * 4);
-    max-height: 75%;
+    max-height: 5rem;
 
     @media only screen and (max-width: 575px) {
         width: 5rem;
     }
     @media only screen and (max-width: 500px) {
         width: 3.5rem;
+    }
+
+    .list_view & {
+        max-height: none;
     }
 }
 
