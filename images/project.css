@@ -213,6 +213,12 @@ body {
   max-height: none;
 }
 
+.card_expand .card {
+  max-width: 18rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .card .box_flag_body {
   padding-bottom: .375rem;
 }

@@ -165,6 +165,7 @@ body {
         height: 65%;
     }
 }
+
 .flex-v .card_body {
     height: 30%;
     display: table;
@@ -196,6 +197,12 @@ body {
     .list_view & {
         max-height: none;
     }
+}
+
+.card_expand .card {
+    max-width: 18rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card .box_flag_body {
