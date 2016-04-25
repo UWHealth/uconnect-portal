@@ -1,0 +1,108 @@
+.vh-4-10 {
+    height: 40vh;
+    min-height: 15rem;
+}
+
+.vh-6-10 {
+    height: 60vh;
+    min-height: (450px / 15px) * 1em;
+    flex-shrink: 0;
+    margin-bottom: 3rem;
+
+    @media only screen and (max-width: 640px) {
+        height: auto;
+    }
+}
+
+.flex-wrap {
+    min-height: 100vh;
+}
+
+.flex {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.flex-v {
+    flex-direction: column;
+}
+
+.hero {
+    background-color: color('link');
+    padding-bottom: 0;
+    justify-content: space-between;
+    max-height: (1.5rem * 20);
+
+    @media only screen and (max-height: 780px) {
+        padding-top: .5em;
+    }
+}
+
+.hero_logo {
+    min-height: 30%;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.hero_logo img {
+    flex: 0 0 auto;
+    align-self: center;
+    justify-content: center;
+    height: auto;
+}
+
+.hero_nav {
+    flex-shrink: 1;
+    flex-grow: .5;
+    flex-basis: 10rem;
+}
+
+.card-group {
+    justify-content: space-around;
+    flex-direction: row;
+    max-width: 1100px;
+    padding: .75rem 0;
+    flex-basis: 1100px;
+}
+
+.card-flex {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    max-width: 20rem;
+    margin: .25rem .375rem;
+    height: auto;
+    margin-bottom: 0;
+}
+
+.card-flex:hover,
+.card-flex:focus {
+    transform: scale(1.0325);
+    box-shadow: 0 3px 4px -2px rgba(clr(shadow),.2),
+        0 8px 10px -6px rgba(clr(shadow), .3);
+}
+
+.card-flex:active {
+    transform: scale(1.05);
+    box-shadow: 0 3px 4px -2px rgba(clr(shadow),.3),
+        0 8px 10px -3px rgba(clr(shadow), .4);
+}
+
+.card-flex_head {
+    display: flex;
+    min-height: 9vh;
+    max-height: (125px / 15px) * 1em;
+    flex-basis: 70px;
+    overflow: hidden;
+}
+
+.card-flex .card_body {
+    display: flex;
+    padding: .75rem .25rem;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}

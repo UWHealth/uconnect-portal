@@ -3,21 +3,12 @@ $grid-columns: 12;
 @import 'grid';
 @import 'colors';
 
+
 html {
     overflow-y: scroll;
     @media only screen and (min-width: 640px){
-        font-size: 15px;
+        font-size: 86%;
     }
-}
-
-body {
-    height: 100%;
-}
-.viewport {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    min-height: 100%;
 }
 
 //////////Grid//////////////
@@ -29,10 +20,18 @@ body {
 
 .wrap {
     max-width: 940px;
+
+    @media only screen and (max-height: 760px) {
+        padding-top: (1.5 * .5) * 1em;
+    }
 }
 
 .c-4-12 {
     @include grid(4);
+
+    @media only screen and (max-width:640px) {
+        @include grid(5)
+    }
 }
 
 .c-5-12 {
@@ -60,44 +59,6 @@ body {
     }
 }
 
-.flex-v {
-    height: 100%;
-}
-
-.flex-v-1 {
-    height: 6vh;
-    max-height: (1.5rem * 3);
-    min-height: 1.5rem;
-
-    @media only screen and (max-height: 900px) {
-        min-height: .75rem;
-    }
-}
-
-.flex-v-2 {
-    height: 10vh;
-}
-
-.flex-v-3 {
-    height: 16.25vh;
-    min-height: 7.5rem;
-    max-height: (1.5rem * 10.5);
-
-    @media only screen and (max-height: 800px) {
-        height: 13vh;
-    }
-}
-
-
-.center {
-    display: table;
-    width: 100%;
-}
-
-.center_wrap {
-    display: table-cell;
-    vertical-align: middle;
-}
 
 //////////Top//////////////
 
@@ -105,30 +66,12 @@ body {
     background-image: url('bg_hero.png');
     background-size: cover;
     background-position: center bottom;
-    height: 18vh;
-    max-height: (1.5rem * 18);
     width: 100%;
-    display: table;
     padding: 1.5rem 0 1.5rem;
-
-    @media only screen and (min-height: 800px) {
-        height: 26vh;
-    }
-
-    @media only screen and (min-height: 1000px) {
-        height: 35vh;
-    }
-
-}
-
-.hero_wrap {
-    display: table-cell;
-    vertical-align: middle;
-    max-width: 100%;
 }
 
 .bg-white {
-    background-color: rgba(#fff, .6);
+    background-color: rgba(#fff, .4);
 }
 .bg-gray {
     background-color: color('form');
@@ -136,15 +79,8 @@ body {
 .bg-blue {
     background-color: color('link');
 }
-.spacer {
-    width: 100%;
-    display: block;
-}
 
-.card-flex-v {
-    height: 100%;
-    margin-bottom: 0;
-}
+//////////Cards//////////////
 
 .card_head {
     display: table;
@@ -158,37 +94,20 @@ body {
     padding-bottom: .75rem;
 }
 
-.flex-v .card_head {
-    height: 70%;
-
-    @media only screen and (max-width: 640px), (max-height: 900px) {
-        height: 65%;
-    }
-}
-
-.flex-v .card_body {
-    height: 30%;
-    display: table;
-    width: 100%;
-    padding: 0 .5rem;
-    vertical-align: middle;
-
-    @media only screen and (max-width: 640px), (max-height: 900px) {
-        height: 35%;
-    }
-}
-
 .card_head_wrap {
     display: table-cell;
     vertical-align: middle;
 }
 
 .card_head_image {
-    max-width: (1.5rem * 4);
-    max-height: 5rem;
+    width: 22%;
+
+    @media only screen and (max-height: 800px) {
+        width: 16%;
+    }
 
     @media only screen and (max-width: 575px) {
-        width: 5rem;
+        width: 30%;
     }
     @media only screen and (max-width: 500px) {
         width: 3.5rem;
@@ -199,36 +118,11 @@ body {
     }
 }
 
-.card_expand .card {
-    max-width: 18rem;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .card .box_flag_body {
     padding-bottom: .375rem;
 }
 
-.card_expand.flex-v {
-    height: 100%;
-    max-height: (1.5rem * 8.75);
-    margin-bottom: 0;
-}
-
-.card_expand.flex-v:hover,
-.card_expand.flex-v:focus {
-    transform: translateY(-1%);
-    width: 102%;
-    left: -1%;
-
-    .card {
-        height: 102%;
-    }
-
-    .card_head {
-        background-color: color('highlight');
-    }
-}
+//////////Small Cards//////////////
 
 .list_view {
 
@@ -236,7 +130,6 @@ body {
         height: auto;
         width: 100%;
         margin-bottom: .75rem;
-        // border-radius: 0;
         border-bottom: 1px solid color(form);
         box-shadow: none;
     }
@@ -249,6 +142,8 @@ body {
 
 }
 
+
+//////////Web Tools//////////////
 .list_nav li {
     margin-bottom: (1.5rem / 4);
 }
@@ -334,3 +229,5 @@ a.webbar_item:active {
     white-space: nowrap;
 
 }
+
+@import 'v2';
