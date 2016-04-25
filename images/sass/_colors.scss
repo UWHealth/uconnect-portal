@@ -31,7 +31,9 @@ $colors: (
     )
 );
 
-@function color($color-name, $tone: 'base', $opacity: 1) {
+@function color($color-name, $opacity: 1) {
+
+    $tone: 'base';
 
 	@if not map-has-key($colors, $color-name) {
 		@warn "Key `#{$color-name}` not found in $colors map. Cannot compile Sass.";
@@ -46,6 +48,6 @@ $colors: (
 	@return map-get(map-get($colors, $color-name), $tone);
 }
 
-@function clr($color-name, $tone: 'base', $opacity: 1) {
-    @return color($color-name, $tone, $opacity);
+@function clr($color-name, $opacity: 1) {
+    @return color($color-name, $opacity);
 }

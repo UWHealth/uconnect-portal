@@ -9,6 +9,9 @@ html {
     @media only screen and (min-width: 640px){
         font-size: 86%;
     }
+    @media only screen and (max-width: 639px){
+        font-size: 75%;
+    }
 }
 
 //////////Grid//////////////
@@ -62,16 +65,8 @@ html {
 
 //////////Top//////////////
 
-.hero {
-    background-image: url('bg_hero.png');
-    background-size: cover;
-    background-position: center bottom;
-    width: 100%;
-    padding: 1.5rem 0 1.5rem;
-}
-
 .bg-white {
-    background-color: rgba(#fff, .4);
+    background-color: rgba(#fff, .2);
 }
 .bg-gray {
     background-color: color('form');
@@ -92,6 +87,11 @@ html {
 .card_head_image {
     padding-top: .75rem;
     padding-bottom: .75rem;
+
+    @media only screen and (max-height: 800px) {
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+    }
 }
 
 .card_head_wrap {
@@ -132,9 +132,15 @@ html {
         margin-bottom: .75rem;
         border-bottom: 1px solid color(form);
         box-shadow: none;
+        transform-origin: 50% 50%;
+    }
+
+    .card:hover .card_media {
+        background-color: color(link, .9)
     }
 
     .card_media {
+        transition: background 100ms ease-in;
         min-height: (1.5rem * 3.5);
         width: (1.5rem * 4);
         float: none;
@@ -164,7 +170,7 @@ html {
 }
 
 .list_nav a:hover {
-    background-color: rgba(color('highlight'), .7);
+    background-color: rgba(color('highlight'), .6);
     border-radius: 3px;
 }
 
@@ -213,7 +219,7 @@ html {
 
 a.webbar_item:hover,
 a.webbar_item:focus {
-    border-color: color(link, 'base', .25);
+    border-color: color(link, .25);
     outline: none;
 }
 
