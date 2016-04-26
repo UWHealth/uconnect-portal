@@ -190,6 +190,7 @@ html {
 
 .card {
     overflow: auto;
+    text-decoration: none;
 }
 
 .card_head_image {
@@ -285,12 +286,14 @@ html {
         transform: scale(1.01);
     }
 
+    .card:active {
+        transform: scale(1.015)
+    }
+
     .card-short {
         height: auto;
         width: 100%;
         margin-bottom: .75rem;
-        border-bottom: 1px solid color(form);
-        box-shadow: none;
         transform-origin: 50% 50%;
     }
 
@@ -299,6 +302,7 @@ html {
     }
 
     .card_media {
+        border-radius: 2px 0 0 2px;
         transition: background 100ms ease-in;
         min-height: (1.5rem * 3.5);
         width: (1.5rem * 4);

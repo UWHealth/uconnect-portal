@@ -73,7 +73,7 @@ html {
 }
 
 .bg-blue {
-  background-color: #0c639a;
+  background-color: #0C5583;
 }
 
 .flex-wrap {
@@ -158,7 +158,7 @@ html {
 }
 
 .hero {
-  background-color: #0c639a;
+  background-color: #0C5583;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
      -moz-box-pack: justify;
@@ -273,6 +273,7 @@ html {
 
 .card {
   overflow: auto;
+  text-decoration: none;
 }
 
 .card_head_image {
@@ -390,7 +391,7 @@ html {
 }
 
 .card:active {
-  color: #1291e1;
+  color: #1282c9;
   -webkit-transform: scale(1.0135);
      -moz-transform: scale(1.0135);
       -ms-transform: scale(1.0135);
@@ -421,14 +422,17 @@ html {
           transform: scale(1.01);
 }
 
+.list_view .card:active {
+  -webkit-transform: scale(1.015);
+     -moz-transform: scale(1.015);
+      -ms-transform: scale(1.015);
+          transform: scale(1.015);
+}
+
 .list_view .card-short {
   height: auto;
   width: 100%;
   margin-bottom: .75rem;
-  border-bottom: 1px solid #d7dde5;
-  -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
   -webkit-transform-origin: 50% 50%;
      -moz-transform-origin: 50% 50%;
       -ms-transform-origin: 50% 50%;
@@ -436,10 +440,12 @@ html {
 }
 
 .list_view .card:hover .card_media {
-  background-color: rgba(12, 99, 154, 0.9);
+  background-color: rgba(12, 85, 131, 0.9);
 }
 
 .list_view .card_media {
+  -moz-border-radius: 2px 0 0 2px;
+       border-radius: 2px 0 0 2px;
   -webkit-transition: background 100ms ease-in;
           transition: background 100ms ease-in;
   min-height: 5.25rem;
@@ -553,7 +559,7 @@ html {
 
 a.webbar_item:hover,
 a.webbar_item:focus {
-  border-color: rgba(12, 99, 154, 0.25);
+  border-color: rgba(12, 85, 131, 0.25);
   outline: none;
 }
 
