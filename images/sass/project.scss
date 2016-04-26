@@ -338,7 +338,7 @@ html {
 .row-even {
     display: flex;
     flex: 1 1 auto;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .webbar {
@@ -357,6 +357,11 @@ html {
     align-content: flex-end;
     padding-top: 0;
     padding-bottom: 0;
+    max-width: 75%;
+
+    @media only screen and (max-width: (640px/13.75px) * 1em) {
+        justify-content: space-between;;
+    }
 }
 
 .webbar_item {

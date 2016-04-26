@@ -487,9 +487,11 @@ html {
      -moz-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
-  -webkit-justify-content: space-around;
-      -ms-flex-pack: distribute;
-          justify-content: space-around;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .webbar {
@@ -522,6 +524,17 @@ html {
           align-content: flex-end;
   padding-top: 0;
   padding-bottom: 0;
+  max-width: 75%;
+}
+
+@media only screen and (max-width: 46.54545em) {
+  .webbar_item-group {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+       -moz-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
 }
 
 .webbar_item {
