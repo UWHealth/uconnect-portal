@@ -24,7 +24,7 @@ html {
 .wrap {
     max-width: 940px;
 
-    @media only screen and (max-height: 760px) {
+    @media only screen and (max-height: (760 /13.76) * 1em ) {
         padding-top: (1.5 * .5) * 1em;
     }
 }
@@ -32,7 +32,7 @@ html {
 .c-4-12 {
     @include grid(4);
 
-    @media only screen and (max-width:640px) {
+    @media only screen and (max-width: (640px/13.76px) * 1em) {
         @include grid(5)
     }
 }
@@ -46,7 +46,7 @@ html {
 }
 
 .small_full {
-    @media only screen and (max-width: 480px) {
+    @media only screen and (max-width: (480px/13.76px) * 1em) {
         width: 100%;
     }
 }
@@ -57,13 +57,12 @@ html {
 }
 
 .smalls-push-0 {
-    @media only screen and (max-width: 640px) {
+    @media only screen and (max-width: (640px/13.76px) * 1em) {
         left: 0;
     }
 }
 
-
-//////////Top//////////////
+//////////Utility Classes//////////////
 
 .bg-white {
     background-color: rgba(#fff, .2);
@@ -75,41 +74,145 @@ html {
     background-color: color('link');
 }
 
+
+//////////Flex Grid//////////////
+
+.flex-wrap {
+    min-height: 100vh;
+}
+
+.flex {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.flex-v {
+    flex-direction: column;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.vh-4-10 {
+    min-height: 15rem;
+    height: 50vh;
+    flex-basis: auto;
+
+    @media only screen and (max-height: (785px/13.76px) * 1em) {
+        height: 42vh;
+        flex-basis: 42vh;
+    }
+
+    @media only screen and (max-height: (700px/13.76px) * 1em) {
+        height: 36vh;
+        flex-basis: 36vh;
+    }
+}
+
+.vh-6-10 {
+    height: 58vh;
+    min-height: (450px / 13.76px) * 1em;
+    flex-shrink: 0;
+    margin-bottom: 3rem;
+
+    @media only screen and (max-width: (640 / 13.76)*1em) {
+        height: auto;
+    }
+}
+
+
+//////////Top//////////////
+
+.hero {
+    background-color: color('link');
+    justify-content: space-between;
+    max-height: (1.5rem * 26);
+    position: relative;
+    background-image: url('bg_hero_5.jpg');
+    background-position: center 55%;
+    background-size: cover;
+    width: 100%;
+    padding: 0;
+    flex-shrink: 2;
+    flex-grow: .5;
+}
+
+.hero:before {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	width: 100%;
+	background: linear-gradient(to bottom,
+        rgba(13,50,70, .5) 0%,
+        rgba(29,41,55,.08) 35%,
+        rgba(color(subtle), .5), 87%,
+        color(subtle) 98%
+    );
+
+}
+
+.hero_logo {
+    min-height: 30%;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    flex-basis: 2.5rem;
+    flex-grow: 1.75;
+    position: relative;
+}
+
+.hero_logo img {
+    flex: 0 0 auto;
+    align-self: center;
+    justify-content: center;
+    height: auto;
+}
+
+.hero_nav {
+    flex-shrink: 1;
+    flex-grow: .5;
+    flex-basis: 9rem;
+}
+
 //////////Cards//////////////
 
-.card_head {
-    display: table;
-    width: 100%;
-    text-align: center;
-    padding: 0 1.5rem;
+.card-group {
+    justify-content: space-around;
+    flex-direction: row;
+    max-width: 1100px;
+    padding: .75rem 0;
+    flex-basis: 1100px;
+}
+
+.card {
+    overflow: auto;
 }
 
 .card_head_image {
     padding-top: .75rem;
     padding-bottom: .75rem;
 
-    @media only screen and (max-height: 800px) {
+    @media only screen and (max-height: (800px/13.76px) * 1em) {
         padding-top: .5rem;
         padding-bottom: .5rem;
     }
 }
 
-.card_head_wrap {
-    display: table-cell;
-    vertical-align: middle;
-}
-
 .card_head_image {
     width: 22%;
 
-    @media only screen and (max-height: 800px) {
+    @media only screen and (max-height: (800px/13.76px) * 1em) {
         width: 16%;
     }
 
-    @media only screen and (max-width: 575px) {
+    @media only screen and (max-width: (575px/13.76px) * 1em) {
         width: 30%;
     }
-    @media only screen and (max-width: 500px) {
+    @media only screen and (max-width: (500px/13.76px) * 1em) {
         width: 3.5rem;
     }
 
@@ -118,13 +221,64 @@ html {
     }
 }
 
-.card .box_flag_body {
-    padding-bottom: .375rem;
+.card-flex {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    max-width: 22rem;
+    margin: .25rem .375rem;
+    height: auto;
+    margin-bottom: 0;
+	box-shadow: 0 1px 10px rgba(clr(shadow), 0.125);
+}
+
+.card-flex_head {
+    display: flex;
+    min-height: 9vh;
+    max-height: (125px / 15px) * 1em;
+    flex-basis: 70px;
+    flex-shrink: .5;
+    flex-grow: .5;
+    overflow: hidden;
+
+    @media only screen and (max-height: (800px/13.76px) * 1em) {
+        min-height: 7vh;
+    }
+}
+
+.card-flex .card_body {
+    display: flex;
+    padding: .75rem .25rem;
+}
+
+
+.card:hover,
+.card:focus {
+    background-color: lighten(color(highlight), 5%);
+    transform: scale(1.0125);
+    box-shadow: 0 8px 10px -6px rgba(clr(shadow), .3),
+    0 3px 4px -2px rgba(clr(shadow),.2);
+}
+
+.card:active {
+    color: lighten(color(link), 15%);
+    transform: scale(1.0135);
+    box-shadow: 0 8px 10px -3px rgba(clr(shadow), .4),
+        0 3px 4px -2px rgba(clr(shadow),.3);
 }
 
 //////////Small Cards//////////////
 
+.card .box_flag_body {
+    padding-bottom: .375rem;
+}
+
 .list_view {
+
+    .card:hover,
+    .card:focus {
+        transform: scale(1.005);
+    }
 
     .card-short {
         height: auto;
@@ -154,10 +308,6 @@ html {
     margin-bottom: (1.5rem / 4);
 }
 
-.card_body_wrap {
-    line-height: 1.1;
-}
-
 .list_nav a {
     padding: .5rem;
     left: -.5rem;
@@ -173,6 +323,8 @@ html {
     background-color: rgba(color('highlight'), .6);
     border-radius: 3px;
 }
+
+//////////Sticky Bottom Bar//////////////
 
 .row-even {
     display: table;
@@ -235,5 +387,3 @@ a.webbar_item:active {
     white-space: nowrap;
 
 }
-
-@import 'v2';
