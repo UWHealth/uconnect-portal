@@ -274,10 +274,15 @@ html {
 }
 
 .list_view {
+    padding-bottom: 1.5rem;
+
+    .card {
+        transition-duration: .1s;
+    }
 
     .card:hover,
     .card:focus {
-        transform: scale(1.005);
+        transform: scale(1.01);
     }
 
     .card-short {
@@ -327,9 +332,9 @@ html {
 //////////Sticky Bottom Bar//////////////
 
 .row-even {
-    display: table;
-    table-layout: auto;
-    min-width: 100%;
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: space-around;
 }
 
 .webbar {
@@ -341,29 +346,29 @@ html {
     padding: .5rem 2% .2rem .5%;
 }
 
-.webbar_item {
-    display: table-cell;
-    direction: ltr;
-    padding: .25rem 2.35% .05rem;
-    overflow: hidden;
-    border: 1px solid transparent;
-    border-radius: 2px;
-    width: 15%;
-}
-
 .webbar_item-group {
-    direction: rtl;
-    display: table-cell;
-    width: 100%;
+    display: inline-flex;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    align-content: flex-end;
     padding-top: 0;
     padding-bottom: 0;
 }
 
-.webbar_item-group .webbar_item {
-    width: 20%;
+.webbar_item {
+    display: inline-flex;
+    flex-direction: column;
+    padding: .25rem 2.35% .05rem;
+    overflow: hidden;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    flex: 0 1 auto;
+    max-width: 15em;
 }
 
 .webbar_item img {
+    display: block;
+    margin: auto;
     width: 36px;
     max-width: none;
 }
@@ -376,7 +381,7 @@ a.webbar_item:focus {
 }
 
 a.webbar_item:active {
-    background-color: color(highlight);
+    background-color: lighten(color(highlight), 2%);
 }
 
 .webbar_item_text {
@@ -385,5 +390,4 @@ a.webbar_item:active {
     padding: (1.5rem / 4) 0;
     display: block;
     white-space: nowrap;
-
 }
