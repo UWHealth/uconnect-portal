@@ -3,21 +3,15 @@ $grid-columns: 12;
 @import 'grid';
 @import 'colors';
 
+
 html {
     overflow-y: scroll;
     @media only screen and (min-width: 640px){
-        font-size: 15px;
+        font-size: 86%;
     }
-}
-
-body {
-    height: 100%;
-}
-.viewport {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    min-height: 100%;
+    @media only screen and (max-width: 639px){
+        font-size: 75%;
+    }
 }
 
 //////////Grid//////////////
@@ -29,10 +23,18 @@ body {
 
 .wrap {
     max-width: 940px;
+
+    @media only screen and (max-height: (760 /13.76) * 1em ) {
+        padding-top: (1.5 * .5) * 1em;
+    }
 }
 
 .c-4-12 {
     @include grid(4);
+
+    @media only screen and (max-width: (640px/13.76px) * 1em) {
+        @include grid(5)
+    }
 }
 
 .c-5-12 {
@@ -44,7 +46,7 @@ body {
 }
 
 .small_full {
-    @media only screen and (max-width: 480px) {
+    @media only screen and (max-width: (480px/13.76px) * 1em) {
         width: 100%;
     }
 }
@@ -55,80 +57,15 @@ body {
 }
 
 .smalls-push-0 {
-    @media only screen and (max-width: 640px) {
+    @media only screen and (max-width: (640px/13.76px) * 1em) {
         left: 0;
     }
 }
 
-.flex-v {
-    height: 100%;
-}
-
-.flex-v-1 {
-    height: 6vh;
-    max-height: (1.5rem * 3);
-    min-height: 1.5rem;
-
-    @media only screen and (max-height: 900px) {
-        min-height: .75rem;
-    }
-}
-
-.flex-v-2 {
-    height: 10vh;
-}
-
-.flex-v-3 {
-    height: 16.25vh;
-    min-height: 7.5rem;
-    max-height: (1.5rem * 10.5);
-
-    @media only screen and (max-height: 800px) {
-        height: 13vh;
-    }
-}
-
-
-.center {
-    display: table;
-    width: 100%;
-}
-
-.center_wrap {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-//////////Top//////////////
-
-.hero {
-    background-image: url('bg_hero.png');
-    background-size: cover;
-    background-position: center bottom;
-    height: 18vh;
-    max-height: (1.5rem * 18);
-    width: 100%;
-    display: table;
-    padding: 1.5rem 0 1.5rem;
-
-    @media only screen and (min-height: 800px) {
-        height: 26vh;
-    }
-
-    @media only screen and (min-height: 1000px) {
-        height: 35vh;
-    }
-
-}
-
-.hero_wrap {
-    display: table-cell;
-    vertical-align: middle;
-    max-width: 100%;
-}
+//////////Utility Classes//////////////
 
 .bg-white {
-    background-color: rgba(#fff, .6);
+    background-color: rgba(#fff, .2);
 }
 .bg-gray {
     background-color: color('form');
@@ -136,61 +73,141 @@ body {
 .bg-blue {
     background-color: color('link');
 }
-.spacer {
-    width: 100%;
-    display: block;
+
+
+//////////Flex Grid//////////////
+
+.flex-wrap {
+    min-height: 100vh;
 }
 
-.card-flex-v {
-    height: 100%;
-    margin-bottom: 0;
+.flex {
+    display: flex;
+    flex: 1 1 auto;
 }
 
-.card_head {
-    display: table;
+.flex-v {
+    flex-direction: column;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.vh-4-10 {
+    min-height: 15rem;
+    height: 50vh;
+    flex-basis: auto;
+
+    @media only screen and (max-height: (785px/13.76px) * 1em) {
+        height: 42vh;
+        flex-basis: 42vh;
+    }
+
+    @media only screen and (max-height: (700px/13.76px) * 1em) {
+        height: 36vh;
+        flex-basis: 36vh;
+    }
+}
+
+.vh-6-10 {
+    height: 58vh;
+    min-height: (450px / 13.76px) * 1em;
+    flex-shrink: 0;
+    margin-bottom: 3rem;
+
+    @media only screen and (max-width: (640 / 13.76)*1em) {
+        height: auto;
+    }
+}
+
+
+//////////Top//////////////
+
+.hero {
+    background-color: color('link');
+    justify-content: space-between;
+    max-height: (1.5rem * 26);
+    position: relative;
+    background-image: url('bg_hero_5.jpg');
+    background-position: center 55%;
+    background-size: cover;
     width: 100%;
-    text-align: center;
-    padding: 0 1.5rem;
+    padding: 0;
+    flex-shrink: 2;
+    flex-grow: .5;
+}
+
+.hero:before {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	width: 100%;
+	background: linear-gradient(to bottom,
+        rgba(13,50,70, .5) 0%,
+        rgba(29,41,55,.08) 35%,
+        rgba(color(subtle), .5), 87%,
+        color(subtle) 98%
+    );
+
+}
+
+.hero_logo {
+    min-height: 30%;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    flex-basis: 2.5rem;
+    flex-grow: 1.75;
+    position: relative;
+}
+
+.hero_logo img {
+    flex: 0 0 auto;
+    align-self: center;
+    justify-content: center;
+    height: auto;
+}
+
+.hero_nav {
+    flex-shrink: 1;
+    flex-grow: .5;
+    flex-basis: 9rem;
+}
+
+//////////Cards//////////////
+
+.card-group {
+    justify-content: space-around;
+    flex-direction: row;
+    max-width: 1100px;
+    padding: .75rem 0;
+    flex-basis: 1100px;
+}
+
+.card {
+    overflow: auto;
+    text-decoration: none;
 }
 
 .card_head_image {
+    width: 22%;
     padding-top: .75rem;
     padding-bottom: .75rem;
-}
 
-.flex-v .card_head {
-    height: 70%;
-
-    @media only screen and (max-width: 640px), (max-height: 900px) {
-        height: 65%;
+    @media only screen and (max-height: (760px/13.76px) * 1em) {
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+        width: 16%;
     }
-}
 
-.flex-v .card_body {
-    height: 30%;
-    display: table;
-    width: 100%;
-    padding: 0 .5rem;
-    vertical-align: middle;
-
-    @media only screen and (max-width: 640px), (max-height: 900px) {
-        height: 35%;
+    @media only screen and (max-width: (575px/13.76px) * 1em) {
+        width: 30%;
     }
-}
-
-.card_head_wrap {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.card_head_image {
-    max-width: (1.5rem * 4);
-    max-height: 5rem;
-
-    @media only screen and (max-width: 575px) {
-        width: 5rem;
-    }
-    @media only screen and (max-width: 500px) {
+    @media only screen and (max-width: (500px/13.76px) * 1em) {
         width: 3.5rem;
     }
 
@@ -199,49 +216,88 @@ body {
     }
 }
 
-.card_expand .card {
-    max-width: 18rem;
-    margin-left: auto;
-    margin-right: auto;
+.card-flex {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    max-width: 22rem;
+    margin: .25rem .375rem;
+    height: auto;
+    margin-bottom: 0;
+	box-shadow: 0 1px 10px rgba(clr(shadow), 0.125);
 }
+
+.card-flex_head {
+    display: flex;
+    min-height: 9vh;
+    max-height: (125px / 15px) * 1em;
+    flex-basis: 70px;
+    flex-shrink: .5;
+    flex-grow: .5;
+    overflow: hidden;
+
+    @media only screen and (max-height: (800px/13.76px) * 1em) {
+        min-height: 7vh;
+    }
+}
+
+.card-flex .card_body {
+    display: flex;
+    padding: .75rem .25rem;
+}
+
+
+.card:hover,
+.card:focus {
+    background-color: lighten(color(highlight), 5%);
+    transform: scale(1.0125);
+    box-shadow: 0 8px 10px -6px rgba(clr(shadow), .3),
+    0 3px 4px -2px rgba(clr(shadow),.2);
+}
+
+.card:active {
+    color: lighten(color(link), 15%);
+    transform: scale(1.0135);
+    box-shadow: 0 8px 10px -3px rgba(clr(shadow), .4),
+        0 3px 4px -2px rgba(clr(shadow),.3);
+}
+
+//////////Small Cards//////////////
 
 .card .box_flag_body {
     padding-bottom: .375rem;
 }
 
-.card_expand.flex-v {
-    height: 100%;
-    max-height: (1.5rem * 8.75);
-    margin-bottom: 0;
-}
-
-.card_expand.flex-v:hover,
-.card_expand.flex-v:focus {
-    transform: translateY(-1%);
-    width: 102%;
-    left: -1%;
+.list_view {
+    padding-bottom: 1.5rem;
 
     .card {
-        height: 102%;
+        transition-duration: .1s;
     }
 
-    .card_head {
-        background-color: color('highlight');
+    .card:hover,
+    .card:focus {
+        transform: scale(1.01);
     }
-}
 
-.list_view {
+    .card:active {
+        transform: scale(1.015)
+    }
 
     .card-short {
         height: auto;
         width: 100%;
         margin-bottom: .75rem;
-        // border-radius: 0;
-        border-bottom: 1px solid color(form);
-        box-shadow: none;
+        transform-origin: 50% 50%;
+    }
+
+    .card:hover .card_media {
+        background-color: color(link, .9)
     }
 
     .card_media {
+        border-radius: 2px 0 0 2px;
+        transition: background 100ms ease-in;
         min-height: (1.5rem * 3.5);
         width: (1.5rem * 4);
         float: none;
@@ -249,12 +305,10 @@ body {
 
 }
 
+
+//////////Web Tools//////////////
 .list_nav li {
     margin-bottom: (1.5rem / 4);
-}
-
-.card_body_wrap {
-    line-height: 1.1;
 }
 
 .list_nav a {
@@ -269,14 +323,16 @@ body {
 }
 
 .list_nav a:hover {
-    background-color: rgba(color('highlight'), .7);
+    background-color: rgba(color('highlight'), .6);
     border-radius: 3px;
 }
 
+//////////Sticky Bottom Bar//////////////
+
 .row-even {
-    display: table;
-    table-layout: auto;
-    min-width: 100%;
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: space-between;
 }
 
 .webbar {
@@ -288,29 +344,34 @@ body {
     padding: .5rem 2% .2rem .5%;
 }
 
+.webbar_item-group {
+    display: inline-flex;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    align-content: flex-end;
+    padding-top: 0;
+    padding-bottom: 0;
+    max-width: 75%;
+
+    @media only screen and (max-width: (640px/13.75px) * 1em) {
+        justify-content: space-between;;
+    }
+}
+
 .webbar_item {
-    display: table-cell;
-    direction: ltr;
+    display: inline-flex;
+    flex-direction: column;
     padding: .25rem 2.35% .05rem;
     overflow: hidden;
     border: 1px solid transparent;
     border-radius: 2px;
-    width: 15%;
-}
-
-.webbar_item-group {
-    direction: rtl;
-    display: table-cell;
-    width: 100%;
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
-.webbar_item-group .webbar_item {
-    width: 20%;
+    flex: 0 1 auto;
+    max-width: 15em;
 }
 
 .webbar_item img {
+    display: block;
+    margin: auto;
     width: 36px;
     max-width: none;
 }
@@ -318,12 +379,12 @@ body {
 
 a.webbar_item:hover,
 a.webbar_item:focus {
-    border-color: color(link, 'base', .25);
+    border-color: color(link, .25);
     outline: none;
 }
 
 a.webbar_item:active {
-    background-color: color(highlight);
+    background-color: lighten(color(highlight), 2%);
 }
 
 .webbar_item_text {
@@ -332,5 +393,4 @@ a.webbar_item:active {
     padding: (1.5rem / 4) 0;
     display: block;
     white-space: nowrap;
-
 }

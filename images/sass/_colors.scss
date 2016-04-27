@@ -6,7 +6,7 @@ $colors: (
 		base: #031522
 	),
 	link: (
-		base: #0c639a
+		base: #0C5583
 	),
 	label: (
 		base: #8da1ad
@@ -25,10 +25,15 @@ $colors: (
 	),
 	highlight: (
 		base: #e4f1f9
-	)
+	),
+    shadow: (
+        base: #0F3754
+    )
 );
 
-@function color($color-name, $tone: 'base', $opacity: 1) {
+@function color($color-name, $opacity: 1) {
+
+    $tone: 'base';
 
 	@if not map-has-key($colors, $color-name) {
 		@warn "Key `#{$color-name}` not found in $colors map. Cannot compile Sass.";
@@ -41,4 +46,8 @@ $colors: (
 	}
 
 	@return map-get(map-get($colors, $color-name), $tone);
+}
+
+@function clr($color-name, $opacity: 1) {
+    @return color($color-name, $opacity);
 }
