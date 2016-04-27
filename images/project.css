@@ -277,23 +277,15 @@ html {
 }
 
 .card_head_image {
+  width: 22%;
   padding-top: .75rem;
   padding-bottom: .75rem;
 }
 
-@media only screen and (max-height: 58.13953em) {
+@media only screen and (max-height: 55.23256em) {
   .card_head_image {
     padding-top: .5rem;
     padding-bottom: .5rem;
-  }
-}
-
-.card_head_image {
-  width: 22%;
-}
-
-@media only screen and (max-height: 58.13953em) {
-  .card_head_image {
     width: 16%;
   }
 }
